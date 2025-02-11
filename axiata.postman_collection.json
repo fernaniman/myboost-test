@@ -1,0 +1,1602 @@
+{
+	"info": {
+		"_postman_id": "69f6a72c-ed5b-4df3-9f94-bd24738b9c1a",
+		"name": "axiata",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37150959"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"brando\",\r\n    \"lastName\": \"88\",\r\n    \"email\": \"brando@gmail.com\",\r\n    \"phone\": \"08123889912123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/api/user/create-update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"user",
+								"create-update"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "exists",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"dasiyah\",\r\n    \"lastName\": \"putri\",\r\n    \"email\": \"daisyah@gmail.com\",\r\n    \"phone\": \"09884231123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/api/user/create-update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"user",
+										"create-update"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Feb 2025 06:37:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"User already exists!\",\n    \"data\": null\n}"
+						},
+						{
+							"name": "firstName not null",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    // \"firstName\": \"dasiyah\",\r\n    \"lastName\": \"putri\",\r\n    \"email\": \"daisyah@gmail.com\",\r\n    \"phone\": \"09884231123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/api/user/create-update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"user",
+										"create-update"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Feb 2025 06:38:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"First name should not be null\",\n    \"data\": null\n}"
+						},
+						{
+							"name": "sukses create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"brando\",\r\n    \"lastName\": \"88\",\r\n    \"email\": \"brando@gmail.com\",\r\n    \"phone\": \"08123889912123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/api/user/create-update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"user",
+										"create-update"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Feb 2025 06:38:59 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Success create User\",\n    \"data\": {\n        \"createdBy\": null,\n        \"createdDate\": \"2025-02-11T06:38:59.256+00:00\",\n        \"updatedBy\": null,\n        \"updatedDate\": null,\n        \"id\": 2,\n        \"firstName\": \"brando\",\n        \"lastName\": \"88\",\n        \"email\": \"brando@gmail.com\",\n        \"phone\": \"08123889912123\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"firstName\": \"brando\",\r\n    \"lastName\": \"88\",\r\n    \"email\": \"brando.88@gmail.com\",\r\n    \"phone\": \"08123889911234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/api/user/create-update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"user",
+								"create-update"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"firstName\": \"brando\",\r\n    \"lastName\": \"88\",\r\n    \"email\": \"brando.88@gmail.com\",\r\n    \"phone\": \"08123889911234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/api/user/create-update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"user",
+										"create-update"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Feb 2025 06:51:28 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Success update User\",\n    \"data\": {\n        \"createdBy\": null,\n        \"createdDate\": \"2025-02-11T06:50:29.596+00:00\",\n        \"updatedBy\": null,\n        \"updatedDate\": \"2025-02-11T06:51:28.788+00:00\",\n        \"id\": 1,\n        \"firstName\": \"brando\",\n        \"lastName\": \"88\",\n        \"email\": \"brando.88@gmail.com\",\n        \"phone\": \"08123889911234\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"dasiyah\",\r\n    \"lastName\": \"putri\",\r\n    \"email\": \"daisyah@gmail.com\",\r\n    \"phone\": \"09884231123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/api/user/get-all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"user",
+								"get-all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "all",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"dasiyah\",\r\n    \"lastName\": \"putri\",\r\n    \"email\": \"daisyah@gmail.com\",\r\n    \"phone\": \"09884231123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/api/user/get-all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"user",
+										"get-all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Feb 2025 06:39:18 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Success get User\",\n    \"data\": [\n        {\n            \"createdBy\": null,\n            \"createdDate\": \"2025-02-11T06:36:42.522+00:00\",\n            \"updatedBy\": null,\n            \"updatedDate\": null,\n            \"id\": 1,\n            \"firstName\": \"dasiyah\",\n            \"lastName\": \"putri\",\n            \"email\": \"daisyah@gmail.com\",\n            \"phone\": \"09884231123\"\n        },\n        {\n            \"createdBy\": null,\n            \"createdDate\": \"2025-02-11T06:38:59.256+00:00\",\n            \"updatedBy\": null,\n            \"updatedDate\": null,\n            \"id\": 2,\n            \"firstName\": \"brando\",\n            \"lastName\": \"88\",\n            \"email\": \"brando@gmail.com\",\n            \"phone\": \"08123889912123\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"dasiyah\",\r\n    \"lastName\": \"putri\",\r\n    \"email\": \"daisyah@gmail.com\",\r\n    \"phone\": \"09884231123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/api/user/get-by-id/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"user",
+								"get-by-id",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"dasiyah\",\r\n    \"lastName\": \"putri\",\r\n    \"email\": \"daisyah@gmail.com\",\r\n    \"phone\": \"09884231123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/api/user/get-by-id/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"user",
+										"get-by-id",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Feb 2025 06:39:52 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Success get User\",\n    \"data\": {\n        \"createdBy\": null,\n        \"createdDate\": \"2025-02-11T06:36:42.522+00:00\",\n        \"updatedBy\": null,\n        \"updatedDate\": null,\n        \"id\": 1,\n        \"firstName\": \"dasiyah\",\n        \"lastName\": \"putri\",\n        \"email\": \"daisyah@gmail.com\",\n        \"phone\": \"09884231123\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"dasiyah\",\r\n    \"lastName\": \"putri\",\r\n    \"email\": \"daisyah@gmail.com\",\r\n    \"phone\": \"09884231123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/api/user/delete-by-id/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"user",
+								"delete-by-id",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"dasiyah\",\r\n    \"lastName\": \"putri\",\r\n    \"email\": \"daisyah@gmail.com\",\r\n    \"phone\": \"09884231123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/api/user/delete-by-id/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"user",
+										"delete-by-id",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Feb 2025 06:51:53 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Success delete User\",\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "item",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"pggas 3\",\r\n    \"description\": \"produk gas\",\r\n    \"price\": 20000,\r\n    \"cost\": 18000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/api/item/create-update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"item",
+								"create-update"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    // \"name\": \"pggas\",\r\n    \"description\": \"produk gas\",\r\n    \"price\": 20000,\r\n    \"cost\": 18000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/api/item/create-update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"item",
+										"create-update"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Feb 2025 07:06:45 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Success create Item\",\n    \"data\": {\n        \"createdBy\": null,\n        \"createdDate\": \"2025-02-11T07:06:45.333+00:00\",\n        \"updatedBy\": null,\n        \"updatedDate\": null,\n        \"id\": 1,\n        \"name\": \"pggas\",\n        \"description\": \"produk gas\",\n        \"price\": 20000,\n        \"cost\": 18000\n    }\n}"
+						},
+						{
+							"name": "name notNull",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    // \"name\": \"pggas\",\r\n    \"description\": \"produk gas\",\r\n    \"price\": 20000,\r\n    \"cost\": 18000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/api/item/create-update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"item",
+										"create-update"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Feb 2025 07:06:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Name should not be null\",\n    \"data\": null\n}"
+						},
+						{
+							"name": "exists",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"pggas\",\r\n    \"description\": \"produk gas\",\r\n    \"price\": 20000,\r\n    \"cost\": 18000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/api/item/create-update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"item",
+										"create-update"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Feb 2025 07:07:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Item already exists!\",\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"name\": \"pggas uppdate\",\r\n    \"description\": \"produk gas --update\",\r\n    \"price\": 30000,\r\n    \"cost\": 25000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/api/item/create-update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"item",
+								"create-update"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 2,\r\n    \"name\": \"pggas uppdate\",\r\n    \"description\": \"produk gas --update\",\r\n    \"price\": 30000,\r\n    \"cost\": 25000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/api/item/create-update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"item",
+										"create-update"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Feb 2025 07:09:04 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Success update Item\",\n    \"data\": {\n        \"createdBy\": null,\n        \"createdDate\": \"2025-02-11T07:07:33.323+00:00\",\n        \"updatedBy\": null,\n        \"updatedDate\": \"2025-02-11T07:09:04.324+00:00\",\n        \"id\": 2,\n        \"name\": \"pggas uppdate\",\n        \"description\": \"produk gas --update\",\n        \"price\": 30000,\n        \"cost\": 25000\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"dasiyah\",\r\n    \"lastName\": \"putri\",\r\n    \"email\": \"daisyah@gmail.com\",\r\n    \"phone\": \"09884231123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/api/item/get-all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"item",
+								"get-all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "all",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"dasiyah\",\r\n    \"lastName\": \"putri\",\r\n    \"email\": \"daisyah@gmail.com\",\r\n    \"phone\": \"09884231123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/api/item/get-all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"item",
+										"get-all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Feb 2025 07:07:57 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Success get Item\",\n    \"data\": [\n        {\n            \"createdBy\": null,\n            \"createdDate\": \"2025-02-11T07:06:45.333+00:00\",\n            \"updatedBy\": null,\n            \"updatedDate\": null,\n            \"id\": 1,\n            \"name\": \"pggas\",\n            \"description\": \"produk gas\",\n            \"price\": 20000,\n            \"cost\": 18000\n        },\n        {\n            \"createdBy\": null,\n            \"createdDate\": \"2025-02-11T07:07:33.323+00:00\",\n            \"updatedBy\": null,\n            \"updatedDate\": null,\n            \"id\": 2,\n            \"name\": \"pggas 2\",\n            \"description\": \"produk gas\",\n            \"price\": 20000,\n            \"cost\": 18000\n        },\n        {\n            \"createdBy\": null,\n            \"createdDate\": \"2025-02-11T07:07:41.328+00:00\",\n            \"updatedBy\": null,\n            \"updatedDate\": null,\n            \"id\": 3,\n            \"name\": \"pggas 3\",\n            \"description\": \"produk gas\",\n            \"price\": 20000,\n            \"cost\": 18000\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"dasiyah\",\r\n    \"lastName\": \"putri\",\r\n    \"email\": \"daisyah@gmail.com\",\r\n    \"phone\": \"09884231123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/api/item/get-by-id/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"item",
+								"get-by-id",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"dasiyah\",\r\n    \"lastName\": \"putri\",\r\n    \"email\": \"daisyah@gmail.com\",\r\n    \"phone\": \"09884231123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/api/item/get-by-id/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"item",
+										"get-by-id",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Feb 2025 07:09:09 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Success get Item\",\n    \"data\": {\n        \"createdBy\": null,\n        \"createdDate\": \"2025-02-11T07:07:33.323+00:00\",\n        \"updatedBy\": null,\n        \"updatedDate\": \"2025-02-11T07:09:04.324+00:00\",\n        \"id\": 2,\n        \"name\": \"pggas uppdate\",\n        \"description\": \"produk gas --update\",\n        \"price\": 30000,\n        \"cost\": 25000\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"dasiyah\",\r\n    \"lastName\": \"putri\",\r\n    \"email\": \"daisyah@gmail.com\",\r\n    \"phone\": \"09884231123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/api/item/delete-by-id/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"item",
+								"delete-by-id",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"dasiyah\",\r\n    \"lastName\": \"putri\",\r\n    \"email\": \"daisyah@gmail.com\",\r\n    \"phone\": \"09884231123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/api/item/delete-by-id/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"item",
+										"delete-by-id",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Feb 2025 07:09:51 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Success delete Item\",\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "purchase order",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"datetime\": \"2025-02-11T07:07:33.323+00:00\",\r\n    \"description\": \"testing po\",\r\n    \"poDetailEntityList\" : [\r\n        {\r\n            \"itemId\": 1,\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"itemId\": 2,\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/api/po/create-update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"po",
+								"create-update"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"datetime\": \"2025-02-11T07:07:33.323+00:00\",\r\n    \"description\": \"testing po\",\r\n    \"poDetailEntityList\" : [\r\n        {\r\n            \"itemId\": 1,\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"itemId\": 2,\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/api/po/create-update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"po",
+										"create-update"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Feb 2025 09:10:31 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Success create Purchase order\",\n    \"data\": {\n        \"createdBy\": null,\n        \"createdDate\": \"2025-02-11T09:10:31.042+00:00\",\n        \"updatedBy\": null,\n        \"updatedDate\": null,\n        \"id\": 6,\n        \"dateTime\": null,\n        \"description\": \"testing po\",\n        \"totalPrice\": 50000,\n        \"totalCost\": 43000,\n        \"poDetailEntityList\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 6,\r\n    \"datetime\": \"2025-02-11T07:07:33.323+00:00\",\r\n    \"description\": \"testing po update\",\r\n    \"poDetailEntityList\" : [\r\n        {\r\n            \"id\": 15,\r\n            \"itemId\": 1,\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"id\": 16,\r\n            \"itemId\": 2,\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"id\": null,\r\n            \"itemId\": 4,\r\n            \"quantity\": 2\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/api/po/create-update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"po",
+								"create-update"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 6,\r\n    \"datetime\": \"2025-02-11T07:07:33.323+00:00\",\r\n    \"description\": \"testing po update\",\r\n    \"poDetailEntityList\" : [\r\n        {\r\n            \"id\": 15,\r\n            \"itemId\": 1,\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"id\": 16,\r\n            \"itemId\": 2,\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"id\": null,\r\n            \"itemId\": 4,\r\n            \"quantity\": 2\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/api/po/create-update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"po",
+										"create-update"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Feb 2025 09:19:08 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Success create Purchase order\",\n    \"data\": {\n        \"createdBy\": null,\n        \"createdDate\": \"2025-02-11T09:10:31.042+00:00\",\n        \"updatedBy\": null,\n        \"updatedDate\": \"2025-02-11T09:19:07.955+00:00\",\n        \"id\": 6,\n        \"dateTime\": null,\n        \"description\": \"testing po update\",\n        \"totalPrice\": 50044,\n        \"totalCost\": 43040,\n        \"poDetailEntityList\": [\n            {\n                \"id\": 15,\n                \"poHeaderId\": 6,\n                \"itemId\": 1,\n                \"quantity\": 1,\n                \"price\": 20000,\n                \"cost\": 18000\n            },\n            {\n                \"id\": 16,\n                \"poHeaderId\": 6,\n                \"itemId\": 2,\n                \"quantity\": 1,\n                \"price\": 30000,\n                \"cost\": 25000\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"dasiyah\",\r\n    \"lastName\": \"putri\",\r\n    \"email\": \"daisyah@gmail.com\",\r\n    \"phone\": \"09884231123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/api/po/get-all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"po",
+								"get-all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "all",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"dasiyah\",\r\n    \"lastName\": \"putri\",\r\n    \"email\": \"daisyah@gmail.com\",\r\n    \"phone\": \"09884231123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/api/po/get-all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"po",
+										"get-all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Feb 2025 08:55:47 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Success get Purchase order\",\n    \"data\": [\n        {\n            \"createdBy\": null,\n            \"createdDate\": null,\n            \"updatedBy\": null,\n            \"updatedDate\": null,\n            \"id\": 1,\n            \"dateTime\": null,\n            \"description\": \"testing po\",\n            \"totalPrice\": 70000,\n            \"totalCost\": 61000,\n            \"poDetailEntityList\": [\n                {\n                    \"id\": 1,\n                    \"poHeaderId\": 1,\n                    \"itemId\": 1,\n                    \"quantity\": 2,\n                    \"price\": 40000,\n                    \"cost\": 36000\n                },\n                {\n                    \"id\": 2,\n                    \"poHeaderId\": 1,\n                    \"itemId\": 2,\n                    \"quantity\": 1,\n                    \"price\": 30000,\n                    \"cost\": 25000\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"dasiyah\",\r\n    \"lastName\": \"putri\",\r\n    \"email\": \"daisyah@gmail.com\",\r\n    \"phone\": \"09884231123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/api/po/get-by-id/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"po",
+								"get-by-id",
+								"6"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"dasiyah\",\r\n    \"lastName\": \"putri\",\r\n    \"email\": \"daisyah@gmail.com\",\r\n    \"phone\": \"09884231123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/api/po/get-by-id/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"po",
+										"get-by-id",
+										"6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Feb 2025 09:20:21 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Success get Purchase order\",\n    \"data\": {\n        \"createdBy\": null,\n        \"createdDate\": \"2025-02-11T09:10:31.042+00:00\",\n        \"updatedBy\": null,\n        \"updatedDate\": \"2025-02-11T09:19:07.955+00:00\",\n        \"id\": 6,\n        \"dateTime\": null,\n        \"description\": \"testing po update\",\n        \"totalPrice\": 50044,\n        \"totalCost\": 43040,\n        \"poDetailEntityList\": [\n            {\n                \"id\": 15,\n                \"poHeaderId\": 6,\n                \"itemId\": 1,\n                \"quantity\": 1,\n                \"price\": 20000,\n                \"cost\": 18000\n            },\n            {\n                \"id\": 16,\n                \"poHeaderId\": 6,\n                \"itemId\": 2,\n                \"quantity\": 1,\n                \"price\": 30000,\n                \"cost\": 25000\n            },\n            {\n                \"id\": 17,\n                \"poHeaderId\": 6,\n                \"itemId\": 4,\n                \"quantity\": 2,\n                \"price\": 44,\n                \"cost\": 40\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"dasiyah\",\r\n    \"lastName\": \"putri\",\r\n    \"email\": \"daisyah@gmail.com\",\r\n    \"phone\": \"09884231123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/api/po/delete-by-id/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"po",
+								"delete-by-id",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"dasiyah\",\r\n    \"lastName\": \"putri\",\r\n    \"email\": \"daisyah@gmail.com\",\r\n    \"phone\": \"09884231123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/api/po/delete-by-id/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"api",
+										"po",
+										"delete-by-id",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Feb 2025 08:59:23 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Success delete Purchase order\",\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

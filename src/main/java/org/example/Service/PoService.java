@@ -45,18 +45,18 @@ public class PoService {
             // validate data
             for(PoDetailEntity item : request.getPoDetailEntityList()) {
                 if(item.getItemId()==null) {
-                    responseDto = ResponseUtils.getResponse(Boolean.FALSE, "Item is required", null);
+                    responseDto = ResponseUtils.getResponse(Boolean.FALSE, ITEM + " is required", null);
                     return new ResponseEntity<>(responseDto, HttpStatus.BAD_REQUEST);
                 }
                 if(!itemRepo.existsById(item.getItemId())) {
-                    responseDto = ResponseUtils.getResponse(Boolean.FALSE, "Item not found", null);
+                    responseDto = ResponseUtils.getResponse(Boolean.FALSE, ITEM + " not found", null);
                     return new ResponseEntity<>(responseDto, HttpStatus.NOT_FOUND);
                 }
             }
             Map<Long, Long> itemCount = request.getPoDetailEntityList().stream()
                     .collect(Collectors.groupingBy(PoDetailEntity::getItemId, Collectors.counting()));
             if(itemCount.values().stream().anyMatch(count -> count > 1)) {
-                responseDto = ResponseUtils.getResponse(Boolean.FALSE, "Item duplicate", null);
+                responseDto = ResponseUtils.getResponse(Boolean.FALSE, ITEM + " duplicate", null);
                 return new ResponseEntity<>(responseDto, HttpStatus.BAD_REQUEST);
             }
 

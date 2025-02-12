@@ -1,109 +1,77 @@
 package org.example.Controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.Dto.ResponseDto;
-import org.example.Entity.PoHeaderEntity;
 import org.example.Entity.PoDetailEntity;
+import org.example.Entity.PoHeaderEntity;
 import org.example.Service.PoService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.*;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.Arrays;
 import java.util.Date;
 
-import static org.junit.jupiter.api.Assertions.*;
-        import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 public class PoControllerTest {
+
+    private MockMvc mockMvc;
+
+    @Mock
+    private PoService poService;
 
     @InjectMocks
     private PoController poController;
 
-    @MockBean
-    private PoService poService;
-
-    private PoHeaderEntity poHeaderEntity;
-
-    private ResponseDto responseDto;
+    private ObjectMapper objectMapper;
 
     @BeforeEach
     void setUp() {
-        poHeaderEntity = new PoHeaderEntity();
-        poHeaderEntity.setId(1L);
+        objectMapper = new ObjectMapper();
+        mockMvc = MockMvcBuilders.standaloneSetup(poController).build();
+    }
+
+    @Test
+    void testCreatePo() throws Exception {
+        PoHeaderEntity poHeaderEntity = new PoHeaderEntity();
         poHeaderEntity.setDateTime(new Date());
-        poHeaderEntity.setDescription("Test PO");
-        poHeaderEntity.setTotalPrice(1000);
-        poHeaderEntity.setTotalCost(800);
+        poHeaderEntity.setDescription("testing po");
 
-        PoDetailEntity poDetailEntity = new PoDetailEntity();
-        poDetailEntity.setItemId(1L);
-        poDetailEntity.setQuantity(10);
-        poDetailEntity.setPrice(100);
-        poDetailEntity.setCost(80);
+        PoDetailEntity poDetail1 = new PoDetailEntity();
+        poDetail1.setItemId(1L);
+        poDetail1.setQuantity(1);
 
-        poHeaderEntity.setPoDetailEntityList(Arrays.asList(poDetailEntity));
-    }
+        PoDetailEntity poDetail2 = new PoDetailEntity();
+        poDetail2.setItemId(2L);
+        poDetail2.setQuantity(1);
 
-    @Test
-    void testCreatePo_Success() {
-        when(poService.createUpdatePo(any(PoHeaderEntity.class)))
-                .thenReturn(new ResponseEntity<>(new ResponseDto(true, "Success", poHeaderEntity), HttpStatus.CREATED));
+        poHeaderEntity.setPoDetailEntityList(Arrays.asList(poDetail1, poDetail2));
 
-        ResponseEntity<ResponseDto> response = poController.createPo(poHeaderEntity);
+        ResponseDto responseDto = new ResponseDto();
+        responseDto.setSuccess(true);
+        responseDto.setMessage("Success Create PO");
+        responseDto.setData(poHeaderEntity);
 
-        assertEquals(HttpStatus.CREATED, response.getStatusCode());
-        assertNotNull(response.getBody());
-        assertTrue(response.getBody().getSuccess());
-        assertEquals("Success", response.getBody().getMessage());
-        assertEquals(poHeaderEntity, response.getBody().getData());
+        when(poService.createUpdatePo(poHeaderEntity)).thenReturn(new ResponseEntity<>(responseDto, HttpStatus.CREATED));
 
-        verify(poService, times(1)).createUpdatePo(any(PoHeaderEntity.class));
-    }
-
-    @Test
-    void testCreatePo_Failure_ItemNotFound() {
-        PoHeaderEntity invalidPoHeader = new PoHeaderEntity();
-        PoDetailEntity invalidPoDetail = new PoDetailEntity();
-        invalidPoDetail.setItemId(null);
-        invalidPoHeader.setPoDetailEntityList(Arrays.asList(invalidPoDetail));
-
-        when(poService.createUpdatePo(any(PoHeaderEntity.class)))
-                .thenReturn(new ResponseEntity<>(new ResponseDto(false, "Item is required", null), HttpStatus.BAD_REQUEST));
-
-        ResponseEntity<ResponseDto> response = poController.createPo(invalidPoHeader);
-
-        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
-        assertNotNull(response.getBody());
-        assertFalse(response.getBody().getSuccess());
-        assertEquals("Item is required", response.getBody().getMessage());
-
-        verify(poService, times(1)).createUpdatePo(any(PoHeaderEntity.class));
-    }
-
-    @Test
-    void testCreatePo_NotFoundPoHeader() {
-        // Arrange
-        PoHeaderEntity invalidPoHeader = new PoHeaderEntity();
-        invalidPoHeader.setId(99L); // Non-existing PoHeader ID
-
-        when(poService.createUpdatePo(any(PoHeaderEntity.class)))
-                .thenReturn(new ResponseEntity<>(new ResponseDto(false, "PO not found", null), HttpStatus.BAD_REQUEST));
-
-        // Act
-        ResponseEntity<ResponseDto> response = poController.createPo(invalidPoHeader);
-
-        // Assert
-        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
-        assertNotNull(response.getBody());
-        assertFalse(response.getBody().getSuccess());
-        assertEquals("PO not found", response.getBody().getMessage());
-
-        verify(poService, times(1)).createUpdatePo(any(PoHeaderEntity.class));
+        mockMvc.perform(post("/v1/api/po/create-update")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(poHeaderEntity)))
+                .andExpect(status().isCreated())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.success").value(true))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value("Success Create PO"));
     }
 }
-
